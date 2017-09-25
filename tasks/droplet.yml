@@ -2,9 +2,17 @@
   file:
     path: /var/lib/jenkins/.ssh
     state: directory
+    
+- name: b
+  shell: pwd
+  register: out
+  
+- name: a
+  debug:
+    msg: "{{out.stdout}}"
 
 - name: Generate SSH keys
-  shell: ssh-keygen
+  shell: ssh-keygen -b 2048 -t rsa -f ./id_rsa -q -N ""
   args:
     creates: ./id_rsa
     
