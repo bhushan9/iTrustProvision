@@ -1,3 +1,3 @@
-# CreateVMCheckbox.io
+# iTrustProvision.io
 
 Digital Ocean Image
