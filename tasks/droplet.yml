@@ -5,9 +5,11 @@
 
 - name: Generate SSH keys
   shell: ssh-keygen
+  args:
+    creates: ./id_rsa
     
 - name: get key
-  shell: cat /var/lib/jenkins/.ssh/id_rsa.pub
+  shell: cat ./id_rsa.pub
   register: key
   
 - name: print key
