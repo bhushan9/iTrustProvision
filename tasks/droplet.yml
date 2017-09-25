@@ -7,6 +7,14 @@
   shell: ssh-keygen -b 2048 -t rsa -f /var/lib/jenkins/.ssh/id_rsa -q -N ""
   args:
     creates: /var/lib/jenkins/.ssh/id_rsa
+    
+- name: get key
+  shell: cat /var/lib/jenkins/.ssh/id_rsa.pub
+  register: key
+  
+- name: print key
+  debug:
+    msg: "{{key.stdout}}"
 - name: Deploy public key
   digital_ocean: >
     state=present
