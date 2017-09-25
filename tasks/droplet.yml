@@ -34,7 +34,6 @@
   add_host: >
     name="{{ do_droplet.droplet.ip_address }}"
     groups=newdroplets
-    ansible_python_interpreter=/usr/bin/python3
     ansible_ssh_user=root
     ansible_ssh_key=/var/lib/jenkins/.ssh/id_rsa
 - name: Wait for VM to come up
