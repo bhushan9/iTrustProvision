@@ -13,6 +13,13 @@
     api_token="{{ api_key }}"
     ssh_pub_key="{{ my_pub_key }}"
   register: do_droplet
+  
+- name: whoami
+  shell: whoami
+  register: out
+- name: debug
+  debug:
+    msg: "{{out.stdout}}"
      
 - name: Create Digital Ocean droplet 512Mb/Ubuntu12.04 LTS/Amsterdam
   digital_ocean: >   
