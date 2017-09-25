@@ -1,3 +1,9 @@
+- name: whoami
+  shell: whoami
+  register: out
+- name: debug
+  debug: 
+    msg: "{{out.stdout}}"
 - name: update apt
   apt:
     update_cache: yes
